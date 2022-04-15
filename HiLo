@@ -1,7 +1,55 @@
+import java.util.Scanner;
+
 public class HiLo {
+  
     public static void main(String[] args) {
-    // Create a random number for a user to guess
-        int theNumber = (int) (Math.random() * 100 + 1);
-        System.out.println(theNumber);
+      
+      Scanner scan = new Scanner(System.in); 
+
+      String playAgain = "";
+
+      int numberOfTries = 0;
+
+      do {
+      
+      // Create a random number for a user to guess
+      
+      int theNumber = (int) (Math.random() * 100 + 1);
+      
+      // System.out.println(theNumber);
+
+      int guess = 0;
+
+      while (guess != theNumber) {
+
+        System.out.println("Guess a number between 1 and 100!:");
+
+        guess = scan.nextInt();
+
+        numberOfTries = numberOfTries + 1;
+
+        if (guess < theNumber)
+
+          System.out.println(guess + " is too low! Give it another go. Number of tries: " + numberOfTries);
+
+        else if (guess > theNumber)
+
+          System.out.println(guess + " is too high! Guess again. Number of tries: " + numberOfTries);
+
+        else 
+
+          System.out.println(guess + " is right! Yay!! It only took you " + numberOfTries + " tries!");
+      
+        }   // End of while loop
+
+            System.out.println("Wanna play again? (y/n)");
+
+            playAgain = scan.next();
+
+        } while (playAgain.equalsIgnoreCase("y"));
+
+        System.out.println("Thanks for playing! See you later!!");
+
+        scan.close();
     }
 }
