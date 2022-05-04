@@ -45,6 +45,8 @@ public class HiLo {
             System.out.println("Wanna play again? (y/n)");
 
             playAgain = scan.next();
+            
+            numberOfTries = 0;
 
         } while (playAgain.equalsIgnoreCase("y"));
 
